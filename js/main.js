@@ -159,53 +159,36 @@ class TicTacToe {
         // TODO: Set the `class` attribute on the `this.drawScreen` property
         // to "show".
     }
+    
     setUpBoard() {
-        // TODO: Clear all content from the existing `this.gameboard` element.
+        this.gameboard.innerHTML = "";
 
-        // We must draw the game board by using a loop to create rows with
-        // tiles in them. We want to create the same structure as we see in the
-        // index.html file.
+        for (let i = 0; i < 3; i++) {
+            let newRow = document.createElement('div');
+            newRow.setAttribute('class', 'row');
 
-        // TODO: Create a `for` loop that will loop three times. The counter
-        // variable in this loop should be called `i`.
-        // TODO: Create a new div element called `newRow
+            for (let j = 0; i < 3; i++) {
+                let newCol = document.createElement('div');
+                newCol.setAttribute('class', 'col-xs-3');
 
-        // TODO: Set the `class` attribute on `newRow` to "row".
+                let newTile = document.createElement('span');
+                newTile.setAttribute('class', 'fas fa-question tile');
+                newTile.setAttribute('data-x', i);
+                newTile.setAttribute('data-y', j);
 
-        // TODO: Create another `for` loop to make the colums to contain the
-        // tiles. This `for` loop should also loop 3 times. The counter
-        // variable in this loop should be called `j`.
+                newCol.appendChild(newTile);
+                newRow.appendChild(newCol);
 
-        // TODO: Create a new `div` element called `newCol`.
+            }
 
-        // TODO: Set the `class` attribute on `newCol` to "col-xs-3".
+            this.gameboard.appendChild(newRow);
 
-        // TODO: Create a new `span` element called `newTile`.
+        }
 
-        // TODO: Set the `class` attribute on `newTile` to equal the
-        // placeholder styles ("tile fas fa-question-sign").
-
-        // TODO: Set the `data-x` attribute on the `newTile` element
-        // equal to `i`.
-
-        // TODO: Set the `data-y` attribute on the `newTile` element
-        // equal to `j`.
-
-
-        // TODO: Append `newTile` as a child to `newCol`.
-
-        // TODO: Append `newCol` as a child to `newRow`.
-
-        // NOTE: Your second `for` loop should end here.
-
-        // TODO: Append the `newRow` element to `this.gameboard` as a child element.
-
-        // NOTE: Your first `for` loop should end here.
-
-        // TODO: Call `this.setUpTileListeners()` to add event listeners to the
-        // `.tile` elements.
+        this.setUpTileListeners();
 
     }
+
     initializeMovePrompt() {
         // This method initializes the `this.movePrompt` element.
 
